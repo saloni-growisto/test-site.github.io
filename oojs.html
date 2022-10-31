@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Object-oriented JavaScript example</title>
+    </head>
+
+    <body>
+        <h1>Welcome to JS Objects World!</h1>
+    </body>
+
+    <script>
+        const person = {
+            name: ['Saloni', 'Nishi'],
+            fullName: {
+                firstName: ['Saloni', 'Nishi'],
+                lastName: 'Agrawal'
+            },
+            age: 25,
+            bio() {
+                console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            },
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name[0]}.`);
+            },
+            introFullName() {
+                console.log(`Hi! My name is ${this.fullName.firstName[1]} ${this.fullName.lastName}.`);
+            }
+        };
+
+        function logProperty(propertyName) {
+            console.log(person[propertyName]);
+        }
+
+        logProperty("name");
+        logProperty("age");
+
+        const myDataName = "height";
+        const myDataValue = "1.75m";
+        person[myDataName] = myDataValue;
+
+// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------
+
+        function createPerson(name) {
+            const obj = {};
+            obj.name = name;
+            obj.introduceSelf = function() {
+                console.log(`Hi! I'm ${this.name}.`);
+            }
+            return obj;
+        }
+
+        const person1 = createPerson("Saloni");
+        console.log(person1.name);
+        person1.introduceSelf();
+
+        const person2 = createPerson("Nishi");
+        console.log(person2.name);
+        person2.introduceSelf();
+
+// ----------------------------------Constructor---------------------------------------------------------
+// -------------------Create, Bind "this", Run and Return the object-------------------------------------
+
+        function Person(name) {
+            this.name = name;
+            this.introduceSelf = function() {
+                console.log(`H1! I'm ${this.name}.`);
+            }
+        }
+
+        const cperson1 = new Person("Chirag");
+        console.log(cperson1.name);
+        cperson1.introduceSelf();
+
+        const cperson2 = new Person("Tina");
+        console.log(cperson2.name);
+        cperson2.introduceSelf();
+    </script>
+</html>
