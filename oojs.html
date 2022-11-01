@@ -77,5 +77,35 @@
         const cperson2 = new Person("Tina");
         console.log(cperson2.name);
         cperson2.introduceSelf();
+
+// ------------------------------Setting a prototype-----------------------------------------------------
+// --------------------------------Object.create()-------------------------------------------------------
+
+        const personPrototype = {
+            greet() {
+                console.log("Hello, Anaya!");
+            }
+        }
+
+        const carl = Object.create(personPrototype);
+        carl.greet();
+
+// ------------------------------Setting a prototype-----------------------------------------------------
+// ----------------------------------constructor---------------------------------------------------------
+
+        const personPrototype1 = {
+            greet() {
+                console.log(`Hello, my name is ${this.name}!`);
+            },
+        };
+
+        function Cperson(name) {
+            this.name = name;
+        }
+
+        Object.assign(Cperson.prototype, personPrototype1);
+
+        const reuben = new Cperson("Aarya");
+        reuben.greet();
     </script>
 </html>

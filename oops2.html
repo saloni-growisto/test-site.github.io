@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Object-oriented JavaScript example</title>
+    </head>
+
+    <body>
+        <h1>Welcome to JS OOPS World!</h1>
+    </body>
+
+    <script>
+
+// ------------------------------Classes and Instance-----------------------------------------------------
+// ------------------Constructors, Inheritance and Encapsulation------------------------------------------
+
+        class Person {
+            name;
+
+            // If you need special initialization, use constructor; else omit it
+            constructor(name) {
+                this.name = name;
+            }
+
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name}`);
+            }
+        }
+
+        const person1 = new Person("Deepak");
+        person1.introduceSelf();
+
+        // class Professor {
+        //     constructor(name, teaches) {
+        //         this.name = name;
+        //         this.teaches = teaches;
+        //     }
+
+        //     grade(paper) {
+
+        //     }
+
+        //     introduceSelf() {
+        //         console.log(`My name is Professor ${this.name} and I will be your ${this.teaches} professor.`);
+        //     }
+        // }
+
+        // const professor1 = new Professor("Bhalla", "DBA");
+        // const professor2 = new Professor("Arjun", "ADA");
+
+        // console.log(professor1.teaches);
+        // professor1.introduceSelf();
+
+        // console.log(professor2.teaches);
+        // professor2.introduceSelf();
+
+        
+        // class Student {
+        //     constructor(name, year) {
+        //         this.name = name;
+        //         this.year = year;
+        //     }
+
+        //     introduceSelf() {
+        //         console.log(`My name is ${this.name} and I am in the ${this.year} year.`);
+        //     }
+        // }
+
+        // const student1 = new Student("Neha", "third");
+        // const student2 = new Student("Ajay", "third");
+
+        // console.log(student1.year);
+        // student1.introduceSelf();
+
+        // console.log(student2.year);
+        // student2.introduceSelf();
+    </script>
+</html>
