@@ -31,49 +31,68 @@
         const person1 = new Person("Deepak");
         person1.introduceSelf();
 
-        // class Professor {
-        //     constructor(name, teaches) {
-        //         this.name = name;
-        //         this.teaches = teaches;
-        //     }
 
-        //     grade(paper) {
+        class Professor extends Person {
+            teaches;
 
-        //     }
+            constructor(name, teaches) {
+                super(name);
+                this.teaches = teaches;
+            }
 
-        //     introduceSelf() {
-        //         console.log(`My name is Professor ${this.name} and I will be your ${this.teaches} professor.`);
-        //     }
-        // }
+            introduceSelf() {
+                console.log(`My name is Professor ${this.name} and I will be your ${this.teaches} professor.`);
+            }
 
-        // const professor1 = new Professor("Bhalla", "DBA");
-        // const professor2 = new Professor("Arjun", "ADA");
+            grade(paper) {
+                const grade = Math.floor(Math.random() * (5 - 1) + 1);
+                console.log(grade);
+            }
+        }
 
-        // console.log(professor1.teaches);
-        // professor1.introduceSelf();
+        const professor1 = new Professor("Bhalla", "DBA");
+        const professor2 = new Professor("Arjun", "ADA");
 
-        // console.log(professor2.teaches);
-        // professor2.introduceSelf();
+        console.log(professor1.name + " - " + professor1.teaches);
+        professor1.introduceSelf();
+        professor1.grade("paper");
+
+        console.log(professor2.name + " - " + professor2.teaches);
+        professor2.introduceSelf();
+        professor2.grade("paper");
 
         
-        // class Student {
-        //     constructor(name, year) {
-        //         this.name = name;
-        //         this.year = year;
-        //     }
+        class Student extends Person {
+            #year; // private data property
 
-        //     introduceSelf() {
-        //         console.log(`My name is ${this.name} and I am in the ${this.year} year.`);
-        //     }
-        // }
+            constructor(name, year) {
+                super(name);
+                this.#year = year;
+            }
 
-        // const student1 = new Student("Neha", "third");
-        // const student2 = new Student("Ajay", "third");
+            introduceSelf() {
+                console.log(`My name is ${this.name} and I am in the ${this.#year} year.`);
+            }
 
-        // console.log(student1.year);
-        // student1.introduceSelf();
+            canStudyArchery() {
+                console.log(this.#year > 1);
+            }
 
-        // console.log(student2.year);
-        // student2.introduceSelf();
+            #somePrivateMethod() { // private method; only be called by the object's own methods
+                console.log('You called me?');
+            }
+        }
+
+        const student1 = new Student("Neha", 1);
+        const student2 = new Student("Ajay", 2);
+
+        console.log(student1.name + " - " + student1.year);
+        student1.introduceSelf();
+        student1.canStudyArchery();
+        student1.somePrivateMethod();
+
+        console.log(student2.name + " - " + student2.year);
+        student2.introduceSelf();
+        student2.canStudyArchery();
     </script>
 </html>
